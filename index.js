@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 app.get("/", async function(req, res) {
   try {
     const params = new URLSearchParams(req.query).toString();
-    const url = API + (params ? "?" + params : "") + "&_=" + Date.now();
+    const url = API + (params ? "?" + params : "");
     const response = await fetch(url, { redirect: "follow" });
     const data = await response.json();
     res.json(data);
